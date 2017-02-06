@@ -4,7 +4,8 @@ from os import getenv
 
 from models import catalog
 
-TOKEN = getenv('BOT_TOKEN')
+TOKEN = '321211996:AAHVErTVde46F-yx7nOkE3DfLWy5oFpD8-0'
+
 if not TOKEN:
     raise Exception('BOT_TOKEN should be specified')
 
