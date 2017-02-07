@@ -1,24 +1,15 @@
 from flask import Flask
 from flask_admin import Admin
-from models import User
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
+from new_insert import Pizza, Choice, db
+from flask_admin.contrib.sqla import ModelView
 
 
 app = Flask(__name__)
-from flask_admin.contrib.sqla import ModelView
 app.secret_key = 'super secret key'
-# Flask and Flask-SQLAlchemy initialization here
 
-engine = create_engine('sqlite:///foo.db')
-Session = sessionmaker(bind=engine)
-Base = declarative_base()
-session = Session()
-
-admin = Admin(app, name='microblog', template_mode='bootstrap3')
-admin.add_view(ModelView(User, session))
-
-app.run()
-
-session.commit()
+if __name__ == "__main__":
+    admin = Admin(app, name='microblog', template_mode='bootstrap3')
+    admin.add_view(ModelView(Pizza, db.session))
+    admin.add_view(ModelView(Choice, db.session))
+    app.run(port=8088)
+    db.session.commit()

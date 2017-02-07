@@ -1,3 +1,9 @@
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///foo.db'
+db = SQLAlchemy(app)
 
 
 class Pizza(db.Model):
@@ -18,3 +24,7 @@ class Choice(db.Model):
 
     def __repr__(self):
         return "Заказ '{} - {}'".format(self.title, self.price)
+
+
+if __name__ == "__main__":
+    db.create_all()
