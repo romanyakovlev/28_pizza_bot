@@ -5,7 +5,7 @@ catalog = [
         'description': 'соус,сыр Моцарелла',
         'choices': [
             {
-                'title': '30 см (450гр)',
+                'title': '30см (500гр)',
                 'price': 360,
             },
             {
@@ -20,7 +20,7 @@ catalog = [
         'choices': [
             {
                 'title': '30см (500гр)',
-                'price': 400,
+                'price': 360,
             },
             {
                 'title': '40cм (850гр)',

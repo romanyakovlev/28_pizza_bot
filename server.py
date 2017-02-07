@@ -1,11 +1,7 @@
-from flask import Flask
 from flask_admin import Admin
-from new_insert import Pizza, Choice, db
+from models import Pizza, Choice
 from flask_admin.contrib.sqla import ModelView
-
-
-app = Flask(__name__)
-app.secret_key = 'super secret key'
+from app import app, db
 
 if __name__ == "__main__":
     admin = Admin(app, name='microblog', template_mode='bootstrap3')

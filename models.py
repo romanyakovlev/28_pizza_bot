@@ -1,3 +1,4 @@
+from app import db
 
 
 class Pizza(db.Model):
@@ -17,4 +18,5 @@ class Choice(db.Model):
     pizza_title = db.Column(db.String(100), db.ForeignKey('pizza.title'))
 
     def __repr__(self):
-        return "Заказ '{} - {}'".format(self.title, self.price)
+        return "Заказ '{} - {}' - {}".format(self.title, self.price,
+                                             self.pizza_title)

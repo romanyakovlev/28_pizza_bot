@@ -1,7 +1,10 @@
-from new_insert import Pizza, Choice, db
+from app import db
+from models import Pizza, Choice
 from json_file import catalog
 
 if __name__ == "__main__":
+    db.create_all()
+
     for pizza in catalog:
         choices_list = [Choice(title=choice['title'], price=choice['price'])
                         for choice in pizza['choices']]
@@ -9,9 +12,5 @@ if __name__ == "__main__":
                              description=pizza['description'],
                              choices=choices_list)
         db.session.add(*choices_list)
-        all_choices = Choice.query.all()
-        for choice in choices_list:
-            if choice not in all_choices:
-                db.session.add(choice)
         db.session.add(pizza_object)
     db.session.commit()

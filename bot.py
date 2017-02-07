@@ -1,6 +1,6 @@
 import telebot
 from jinja2 import Template
-from new_insert import Pizza
+from models import Pizza
 
 
 TOKEN = '321211996:AAHVErTVde46F-yx7nOkE3DfLWy5oFpD8-0'
