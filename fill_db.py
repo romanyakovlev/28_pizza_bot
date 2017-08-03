@@ -1,6 +1,6 @@
 from app import db
 from models import Pizza, Choice
-from catalog import catalog
+from pizza_catalog import catalog
 
 if __name__ == "__main__":
     for pizza in catalog:

@@ -6,8 +6,8 @@ from models import Pizza
 
 try:
     TOKEN = os.environ['token']
-except KeyError:
-    print("KeyError: 'token' is not defined")
+except KeyError as e:
+    raise e
 
 
 bot = telebot.TeleBot(TOKEN)

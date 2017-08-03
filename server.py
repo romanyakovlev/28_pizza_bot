@@ -6,17 +6,6 @@ from flask import redirect, request, Response
 import flask_admin
 import os
 
-try:
-    admin_username = os.environ['username']
-    admin_password = os.environ['password']
-except KeyError:
-    undefined_keys = []
-    if not os.environ.get('username', None):
-        undefined_keys.append('username')
-    if not os.environ.get('password', None):
-        undefined_keys.append('password')
-    print('KeyError: key(s) {}'.format(', '.join(undefined_keys)))
-
 
 def check_auth(username, password):
     """This function is called to check if a username /
@@ -77,6 +66,11 @@ def index():
 
 
 if __name__ == "__main__":
+    try:
+        admin_username = os.environ['username']
+        admin_password = os.environ['password']
+    except KeyError as e:
+        raise e
     admin = Admin(app, index_view=MyAdminIndexView(), name='Admin_panel', template_mode='bootstrap3')
     admin.add_view(MicroBlogModelView(Pizza, db.session, endpoint="pizza"))
     admin.add_view(MicroBlogModelView(Choice, db.session, endpoint="choice"))
