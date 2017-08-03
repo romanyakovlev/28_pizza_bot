@@ -19,7 +19,7 @@ $ python create_db.py
 $ python fill_db.py
 
 ```
-4. Запускаем телегра-бота
+4. Запускаем телеграм бота
 ```
 $ token="your_token" python bot.py
 ```
