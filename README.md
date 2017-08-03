@@ -1,18 +1,31 @@
 # Telegram Bot for Pizzeria
 
-[TODO. There will be project description]
+# Что это
 
-# How to Use
+Телеграм бот для пиццерии. С помощью команды "/menu" в чате бот отображает меню пиццерии. С помощью панели администратора можно изменять меню заведения.
 
-Step 1. Register new telegram bot for development purposes, get the new token. [@BotFather](https://telegram.me/botfather)
+# Как пользоваться
 
-Step 2. Launch
+1. Регистрируем бота с помощью [@BotFather](https://telegram.me/botfather)
+2. Устанавливаем путь к бд в переменной окружения
+```
+$ export db_uri="your_path"
+```
+
+3. Создаём и заполняем базу данных
 
 ```
-#!bash
+$ python create_db.py
+$ python fill_db.py
 
-$ # the token below is not actual, you need to register a new one
-$ BOT_TOKEN="110831855:AAE_GbIeVAUwk11O12vq4UeMnl20iADUtM" python3 bot.py
+```
+4. Запускаем телегра-бота
+```
+$ token="your_token" python bot.py
+```
+5. Для редактирования меню запускаем панель администратора (указываем юзернейм и пароль для ограничения доступа к панели администратора)
+```
+$ username="admin" password="secret" python server.py
 ```
 # Project Goals
 
