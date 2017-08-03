@@ -1,12 +1,14 @@
 import telebot
+import os
 from jinja2 import Template
 from models import Pizza
 
 
-TOKEN = '321211996:AAHVErTVde46F-yx7nOkE3DfLWy5oFpD8-0'
+try:
+    TOKEN = os.environ['token']
+except KeyError:
+    print("KeyError: 'token' is not defined")
 
-if not TOKEN:
-    raise Exception('BOT_TOKEN should be specified')
 
 bot = telebot.TeleBot(TOKEN)
 

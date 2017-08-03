@@ -1,9 +1,8 @@
 from app import db
 from models import Pizza, Choice
-from json_file import catalog
+from catalog import catalog
 
 if __name__ == "__main__":
-    db.create_all()
     for pizza in catalog:
         choices_list = [Choice(title=choice['title'], price=choice['price'])
                         for choice in pizza['choices']]

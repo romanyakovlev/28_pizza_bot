@@ -1,0 +1,12 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+{{ super() }}
+<div class="row-fluid">
+    {% if auth_params_recieved %}
+        Вы вошли как админимтратор
+    {% else %}
+        Чтобы получить доступ к панели администратора, выполните вход
+    {% endif %}
+</div>
+{% endblock body %}
