@@ -35,7 +35,7 @@ class MicroBlogModelView(ModelView):
                 return True
         return False
 
-    def inaccessible_callback(self, name, **kwargs):
+    def inaccessible_callback(self, *args, **kwargs):
         auth = request.authorization
         if not auth or not check_auth(auth.username, auth.password):
             return authenticate()
