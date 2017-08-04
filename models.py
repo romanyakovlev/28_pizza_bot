@@ -2,7 +2,7 @@ from app import db
 
 
 class Pizza(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    pizza_id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
     description = db.Column(db.String(100))
     choices = db.relationship('Choice', backref='pizza', lazy='dynamic')
@@ -12,7 +12,7 @@ class Pizza(db.Model):
 
 
 class Choice(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    choices_id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50))
     price = db.Column(db.Integer)
     pizza_title = db.Column(db.String(100), db.ForeignKey('pizza.title'))

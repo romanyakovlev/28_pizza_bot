@@ -7,6 +7,9 @@ import flask_admin
 import os
 
 
+response_code = 401
+
+
 def check_auth(username, password):
     """This function is called to check if a username /
     password combination is valid.
@@ -18,7 +21,7 @@ def authenticate():
     """Sends a 401 response that enables basic auth"""
     return Response(
     'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
+    'You have to login with proper credentials', response_code,
     {'WWW-Authenticate': 'Basic realm="Login Required"'})
 
 

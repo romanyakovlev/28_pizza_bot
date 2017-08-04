@@ -5,12 +5,12 @@ from models import Pizza
 
 
 try:
-    TOKEN = os.environ['token']
+    bot_token = os.environ['token']
 except KeyError as e:
     raise e
 
 
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(bot_token)
 
 with open('templates/catalog.md', 'r') as catalog_file:
     catalog_tmpl = Template(catalog_file.read())
